@@ -62,7 +62,9 @@ del midiout
 ```
 
 ## Sensor
-* Installeer adafruit_blinka
+* Installeer python -m pip install RPi.GPIO
+* Installeer adafruit_blinka (python -m pip install adafruit_blinka)
+* Installeer python -m pip install adafruit-circuitpython-mpr121
 
 
 
