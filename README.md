@@ -9,7 +9,10 @@
 * Raspberry Pi OS Lite (64-bit)
 * Enable I2C on raspberry pi
 * Enable ssh on raspberry pi
-* Creeer ssh-key voor github
+* Creeer ssh-key voor github (bijv. in /home/jenaam/.ssh/id_yourkey)
+* Start ssh-agent en voeg key toe: `eval "$(ssh-agent)"`
+* Voeg key toe met ssh-agent: `ssh-agent ~/.ssh/id_yourkey` (check pad naar ssh-key)
+* Ga naar settings->ssh keys op github.com en voeg (public) ssh key toe aan je account
 * sudo apt update
 * sudo apt upgrade
 * sudo apt install git
