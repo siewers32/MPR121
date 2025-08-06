@@ -1,0 +1,8 @@
+  <form method="post" action="/test_port">
+    <select name="port_number" placeholder="Select a port number">
+      {% for port in midi_manager.available_ports %}
+        <option value="{{ loop.index-1 }}">{{ port }}</option>
+      {% endfor %}
+    </select>
+    <input type="submit" value="Open Port">
+  </form>

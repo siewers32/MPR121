@@ -38,7 +38,10 @@ while midi_loop:
            midi_loop = False
         else:
             # Send MIDI note for the touched sensor
-            print(f"Sending MIDI note for sensor {note}") 
+            print(f"Sending MIDI note for sensor {note}")
+            # write message to test.txt
+            with open("test.txt", "a") as f:
+                f.write(f"Sensor {note} touched at {time.strftime('%Y-%m-%d %H:%M:%S')}\n")
             midi_manager.send_note(midi_manager.notes[note])  
     time.sleep(0.25)  # Small delay to prevent spamming messages
 
