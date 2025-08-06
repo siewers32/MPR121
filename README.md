@@ -66,7 +66,37 @@ del midiout
 * Installeer adafruit_blinka (python -m pip install adafruit_blinka)
 * Installeer python -m pip install adafruit-circuitpython-mpr121
 
+```python
+import time
+import board
+import busio
 
+# Import MPR121 module.
+import adafruit_mpr121
 
+# Create I2C bus.
+i2c = busio.I2C(board.SCL, board.SDA)
 
+# Create MPR121 object.
+mpr121 = adafruit_mpr121.MPR121(i2c)
 
+# Note you can optionally change the address of the device:
+# mpr121 = adafruit_mpr121.MPR121(i2c, address=0x91)
+
+# Loop forever testing each input and printing when they're touched.
+while True:
+    # Loop through all 12 inputs (0-11).
+    for i in range(12):
+        # Call is_touched and pass it then number of the input.  If it's touched
+        # it will return True, otherwise it will return False.
+        if mpr121[i].value:
+            print(f"Input {i} touched!")
+    time.sleep(0.25)  # Small delay to keep from spamming output messages.
+
+```
+
+## Links
+* [checkcheckonetwo.com](https://discourse.checkcheckonetwo.com/t/how-to-install-rtpmidi-on-raspberrypi-or-other-linux-sbc/4111)
+* [Python-rtpmidi](https://github.com/SpotlightKid/python-rtmidi/tree/master)
+* [David Moreno RTPMidi](https://github.com/davidmoreno/rtpmidid)
+* [Adafruit MPR121](https://learn.adafruit.com/adafruit-mpr121-12-key-capacitive-touch-sensor-breakout-tutorial/python-circuitpython)
